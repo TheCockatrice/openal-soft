@@ -126,6 +126,24 @@ jobs:
           eval ${{matrix.config.deps_cmdline}}
         fi
 
+    
+    - name: Install GCC 12
+      if: ${{ contains(matrix.config.name, 'Linux-Release 22.04') }}
+      run: |
+        sudo apt update
+        sudo apt install -y gcc-12 g++-12
+
+    - name: Set GCC 12 as default
+      if: ${{ contains(matrix.config.name, 'Linux-Release 22.04') }}
+      run: |
+        sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-12 100
+        sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-12 100
+
+    - name: Verify compiler
+      run: |
+        gcc --version
+        g++ --version
+
     - name: Configure
       shell: bash
       run: |
