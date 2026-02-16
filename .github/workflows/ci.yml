@@ -150,10 +150,10 @@ jobs:
         g++ --version
 
     - name: Clean build folder
-      if: ${{ contains(matrix.config.name, 'Linux-Release 22.04') }}
       shell: bash
       run: |
         rm -rf build
+        mkdir build
 
     - name: Configure
       shell: bash
@@ -163,7 +163,7 @@ jobs:
     - name: Build
       shell: bash
       run: |
-        cmake --build build --config ${{matrix.config.build_type}}
+        cmake --build build --config ${{matrix.config.build_type}} -DCMAKE_VERBOSE_MAKEFILE=ON
 
     - name: Test
       shell: bash
