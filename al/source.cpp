@@ -2525,7 +2525,7 @@ constexpr auto get_srchandles(gsl::not_null<al::Context*> const context,
         auto source = std::array{LookupSource(context, sids[0])};
         return source_store.emplace<source_store_single>(source);
     }
-    auto &sources = source_store.emplace<source_store_vector>();
+    auto &sources = source_store.emplace<source_store_vector>(source_store_vector{});
     sources.reserve(sids.size());
     std::ranges::transform(sids, std::back_inserter(sources), [context](ALuint const sid)
     { return LookupSource(context, sid); });
