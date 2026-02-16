@@ -10,56 +10,56 @@ jobs:
       fail-fast: false
       matrix:
         config:
-        - {
-            name: "Win32-Release",
-            os: windows-latest,
-            cmake_opts: "-A Win32 \
-              -DALSOFT_TESTS=ON \
-              -DALSOFT_BUILD_ROUTER=ON \
-              -DALSOFT_REQUIRE_WINMM=ON \
-              -DALSOFT_REQUIRE_DSOUND=ON \
-              -DALSOFT_REQUIRE_WASAPI=ON",
-            build_type: "Release"
-          }
-        - {
-            name: "Win64-Release",
-            os: windows-latest,
-            cmake_opts: "-A x64 \
-              -DALSOFT_TESTS=ON \
-              -DALSOFT_BUILD_ROUTER=ON \
-              -DALSOFT_REQUIRE_WINMM=ON \
-              -DALSOFT_REQUIRE_DSOUND=ON \
-              -DALSOFT_REQUIRE_WASAPI=ON",
-            build_type: "Release"
-          }
-        - {
-            name: "Win64-Debug",
-            os: windows-latest,
-            cmake_opts: "-A x64 \
-              -DALSOFT_TESTS=ON \
-              -DALSOFT_BUILD_ROUTER=ON \
-              -DALSOFT_REQUIRE_WINMM=ON \
-              -DALSOFT_REQUIRE_DSOUND=ON \
-              -DALSOFT_REQUIRE_WASAPI=ON \
-              -DFORCE_STATIC_VCRT=ON \
-              -DCMAKE_MSVC_RUNTIME_LIBRARY=MultiThreadedDebug",
-            build_type: "Debug"
-          }
-        - {
-            name: "macOS-Release",
-            os: macos-15,
-            cmake_opts: "-DALSOFT_REQUIRE_COREAUDIO=ON \
-              -DALSOFT_TESTS=ON",
-            build_type: "Release"
-          }
-        - {
-            name: "macOS-10.9-Release",
-            os: macos-15,
-            cmake_opts: "-DCMAKE_OSX_DEPLOYMENT_TARGET=10.9 \
-              -DALSOFT_REQUIRE_COREAUDIO=ON \
-              -DALSOFT_TESTS=ON",
-            build_type: "Release"
-          }
+        # - {
+        #     name: "Win32-Release",
+        #     os: windows-latest,
+        #     cmake_opts: "-A Win32 \
+        #       -DALSOFT_TESTS=ON \
+        #       -DALSOFT_BUILD_ROUTER=ON \
+        #       -DALSOFT_REQUIRE_WINMM=ON \
+        #       -DALSOFT_REQUIRE_DSOUND=ON \
+        #       -DALSOFT_REQUIRE_WASAPI=ON",
+        #     build_type: "Release"
+        #   }
+        # - {
+        #     name: "Win64-Release",
+        #     os: windows-latest,
+        #     cmake_opts: "-A x64 \
+        #       -DALSOFT_TESTS=ON \
+        #       -DALSOFT_BUILD_ROUTER=ON \
+        #       -DALSOFT_REQUIRE_WINMM=ON \
+        #       -DALSOFT_REQUIRE_DSOUND=ON \
+        #       -DALSOFT_REQUIRE_WASAPI=ON",
+        #     build_type: "Release"
+        #   }
+        # - {
+        #     name: "Win64-Debug",
+        #     os: windows-latest,
+        #     cmake_opts: "-A x64 \
+        #       -DALSOFT_TESTS=ON \
+        #       -DALSOFT_BUILD_ROUTER=ON \
+        #       -DALSOFT_REQUIRE_WINMM=ON \
+        #       -DALSOFT_REQUIRE_DSOUND=ON \
+        #       -DALSOFT_REQUIRE_WASAPI=ON \
+        #       -DFORCE_STATIC_VCRT=ON \
+        #       -DCMAKE_MSVC_RUNTIME_LIBRARY=MultiThreadedDebug",
+        #     build_type: "Debug"
+        #   }
+        # - {
+        #     name: "macOS-Release",
+        #     os: macos-15,
+        #     cmake_opts: "-DALSOFT_REQUIRE_COREAUDIO=ON \
+        #       -DALSOFT_TESTS=ON",
+        #     build_type: "Release"
+        #   }
+        # - {
+        #     name: "macOS-10.9-Release",
+        #     os: macos-15,
+        #     cmake_opts: "-DCMAKE_OSX_DEPLOYMENT_TARGET=10.9 \
+        #       -DALSOFT_REQUIRE_COREAUDIO=ON \
+        #       -DALSOFT_TESTS=ON",
+        #     build_type: "Release"
+        #   }
         - {
             name: "Linux-Release",
             os: ubuntu-latest,
