@@ -13,6 +13,7 @@ jobs:
         - {
             name: "Win32-Release",
             os: windows-latest,
+              -DCMAKE_POSITION_INDEPENDENT_CODE=ON \
             cmake_opts: "-A Win32 \
               -DALSOFT_TESTS=ON \
               -DALSOFT_BUILD_ROUTER=ON \
@@ -144,9 +145,16 @@ jobs:
         sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-12 100
 
     - name: Verify compiler
+      if: ${{ contains(matrix.config.name, 'Linux-Release 22.04') }}
       run: |
         gcc --version
         g++ --version
+
+    - name: Clean build folder
+      if: ${{ contains(matrix.config.name, 'Linux-Release 22.04') }}
+      shell: bash
+      run: |
+        rm -rf build
 
     - name: Configure
       shell: bash
