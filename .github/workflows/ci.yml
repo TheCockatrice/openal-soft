@@ -13,7 +13,6 @@ jobs:
         - {
             name: "Win32-Release",
             os: windows-latest,
-              -DCMAKE_POSITION_INDEPENDENT_CODE=ON \
             cmake_opts: "-A Win32 \
               -DALSOFT_TESTS=ON \
               -DALSOFT_BUILD_ROUTER=ON \
