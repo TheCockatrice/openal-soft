@@ -83,7 +83,7 @@ jobs:
           }
         - {
             name: "Linux-Release 22.04",
-            os: ubuntu-22.04,
+            os: ubuntu-20.4,
             cmake_opts: "-DALSOFT_REQUIRE_RTKIT=ON \
               -DALSOFT_REQUIRE_ALSA=ON \
               -DALSOFT_REQUIRE_OSS=ON \
