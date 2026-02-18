@@ -131,7 +131,9 @@ auto LoadSound(ALCcontext *context, const std::string_view filename) -> ALuint
     case SF_FORMAT_FLOAT:
     case SF_FORMAT_DOUBLE:
     case SF_FORMAT_VORBIS:
+#ifdef SF_FORMAT_OPUS
     case SF_FORMAT_OPUS:
+#endif
     case SF_FORMAT_ALAC_20:
     case SF_FORMAT_ALAC_24:
     case SF_FORMAT_ALAC_32:
